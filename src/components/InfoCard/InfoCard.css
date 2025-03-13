@@ -1,0 +1,74 @@
+.infoCard {
+  padding: 1.3rem 2.2rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid var(--borderColor);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  @media screen and (max-width: 428px) {
+    padding: 1.5rem 1rem;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+  }
+
+  &::before {
+    background-color: var(--color);
+    width: 2.5px;
+    height: 100%;
+  }
+
+  .titleBox {
+    .recentPlaceBox__title,
+    .recentPlaceBox__desc {
+      font-size: 1.1rem;
+      font-weight: var(--fontWeightSemiBold);
+    }
+  }
+  .infoCard__desc {
+    font-size: 0.7rem;
+    font-weight: var(--fontWeightRegular);
+  }
+}
+
+.infoCard:hover::after,
+.infoCard:hover::before {
+  transform: translate(0);
+}
+
+.titleBox {
+  overflow: hidden;
+}
+
+.recentPlaceBox__desc {
+  transition: all 0.6s ease;
+}
+
+.loading {
+  .recentPlaceBox__desc {
+    transform: translateY(3rem);
+    opacity: 0;
+  }
+}
+
+.loaded {
+  .recentPlaceBox__desc {
+    transform: none;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,223 @@
+.recentPlaceBox {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recentPlaceBox__title {
+  font-size: 1.3rem;
+  font-weight: var(--fontWeightRegular);
+}
+
+.recentPlaceBox__content {
+  position: relative;
+  overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* width: 100%;
+  height: 100%; */
+  border-radius: 0.5rem;
+  .imgBox {
+    position: relative;
+    padding-top: 0%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.6s ease-out;
+    &::after {
+      content: "";
+      background-color: rgba(26, 29, 34, 0.123);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 0.5rem;
+      transition: all 0.8s ease-in-out;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      transition: all 0.6s ease;
+      animation: animateBackground infinite ease-in-out 25s;
+    }
+  }
+  &:hover {
+    .imgBox {
+      &::after {
+        width: 0%;
+      }
+    }
+    img {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.loaded .recentPlaceBox__content {
+  .imgBox {
+    position: relative;
+    padding-top: 33%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    @media screen and (max-width: 1100px) {
+      padding-top: 60%;
+    }
+    @media screen and (max-width: 991px) {
+      padding-top: 40%;
+    }
+    @media screen and (max-width: 767px) {
+      padding-top: 80%;
+    }
+    @media screen and (max-width: 414px) {
+      padding-top: 100%;
+    }
+  }
+}
+
+@keyframes animateBackground {
+  0% {
+    transform: scale(100%);
+    object-position: center;
+  }
+  50% {
+    transform: scale(150%);
+    object-position: bottom;
+  }
+  100% {
+    transform: scale(100%);
+    object-position: center;
+  }
+}
+
+.infoBox {
+  position: absolute;
+  width: fit-content;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+  gap: 0.5rem;
+  color: var(--colorWhite);
+  font-size: 1.2rem;
+
+  border-radius: 0.5rem;
+  z-index: 3;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(34, 34, 34, 0.9429972672662815) 25%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    z-index: 1;
+    border-radius: 0;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+  @media screen and (max-width: 414px) {
+    align-items: center;
+  }
+}
+
+.infoBox__top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.infoBox__top--title {
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.infoBox__center {
+  font-size: 3.5rem;
+  font-weight: var(--fontWeightMedium);
+  z-index: 2;
+}
+
+.infoBox__bottom {
+  z-index: 2;
+}
+
+.smallBox {
+  .infoBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: var(--color);
+    /* border: 2px solid var(--color); */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    align-items: center;
+    font-size: 0.9rem;
+    border-radius: 0;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: var(--lightGrey);
+    @media screen and (max-width: 767px) {
+      aspect-ratio: 2/1;
+    }
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+      background: transparent;
+      background-color: rgba(0, 0, 0, 0.1);
+      transform: translateX(-100%);
+      transition: all 0.5s ease;
+    }
+
+    &::before {
+      transform: scale(0) rotate(0);
+      transition: all 0.25s ease-out;
+      background-color: var(--color);
+      border-radius: 50%;
+    }
+    .infoBox__center {
+      font-size: 2rem;
+    }
+  }
+}
+
+.smallBox {
+  .infoBox:hover::after {
+    transform: translate(0);
+  }
+
+  .infoBox:hover::before {
+    transform: scale(1);
+    transition-delay: 0.2s;
+    cursor: text;
+    border-radius: 0;
+  }
+  .infoBox > * {
+    transition: all 0.3s ease;
+  }
+
+  .infoBox:hover > * {
+    transform: scale(1.1);
+    color: var(--colorWhite);
+  }
+}

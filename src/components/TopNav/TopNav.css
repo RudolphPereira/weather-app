@@ -1,0 +1,80 @@
+.topNavBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.topNavBox__left,
+.topNavBox__right {
+  overflow: hidden;
+}
+
+.topNavBox__left--title {
+  font-size: 2rem;
+  font-weight: var(--fontWeightMedium);
+  /* transform: translateY(3rem);
+  transition: all 0.8s ease; */
+  opacity: 1;
+  span {
+    display: block;
+    animation: colorchange 15s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    font-weight: var(--fontWeightSemiBold);
+  }
+}
+
+.topNavBox__right--desc {
+  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: var(--fontWeightMedium);
+  /* transform: translateY(3rem);
+  transition: all 0.8s ease; */
+  opacity: 1;
+}
+
+/* .loaded {
+  .topNavBox__left--title {
+    transform: translateY(0);
+    transition-delay: 1.5s;
+    opacity: 1;
+  }
+  .topNavBox__right--desc {
+    transform: translateY(0);
+    transition-delay: 1.7s;
+    opacity: 1;
+  }
+} */
+
+/* Animation */
+@keyframes colorchange {
+  0% {
+    color: #828bee;
+  }
+  14% {
+    color: #4090f1;
+  }
+  28% {
+    color: #343434;
+  }
+  42% {
+    color: #ebc469;
+  }
+  56% {
+    color: #e66b6b;
+  }
+  70% {
+    color: #67b9e8;
+  }
+  84% {
+    color: #e66a90;
+  }
+  100% {
+    color: #828bee;
+  }
+}

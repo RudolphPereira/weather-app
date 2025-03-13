@@ -1,0 +1,49 @@
+.shortErrorBox {
+  font-size: 0.75rem;
+  font-weight: var(--fontWeightRegular);
+  overflow: hidden;
+  padding: 0.3rem 0.5rem;
+  position: relative;
+  background-color: var(--colorRed);
+  color: var(--colorWhite);
+  border-radius: 0.2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  .shortError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.shortErrorBox.active {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.3s;
+}
+
+.pageErrorBox {
+  .pageErrorBox {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    padding: 0.5rem 1rem;
+    background-color: var(--colorRed);
+    color: var(--colorWhite);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    transform: translateX(100%);
+    transition: all 0.6s ease;
+  }
+}
+
+.pageErrorLoaded {
+  .pageErrorBox {
+    transform: none;
+  }
+}
